@@ -1,0 +1,261 @@
+<div class="col-lg-12" style="padding: 15px; margin-top: 5px">
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="row">
+        <div class="col-lg-6 form-group">
+          <div
+            style="
+              height: 8px;
+              font-weight: 500;
+              color: #666;
+              margin-bottom: 12px;
+            "
+          >
+            Start Date
+          </div>
+          <input
+            class="form-control"
+            [(ngModel)]="this.startDate"
+            [value]="startDate"
+            type="date"
+            style="height: 32px"
+          />
+        </div>
+
+        <div class="col-lg-6 form-group">
+          <div
+            style="
+              height: 8px;
+              font-weight: 500;
+              color: #666;
+              margin-bottom: 12px;
+            "
+          >
+            End Date
+          </div>
+          <input
+            class="form-control"
+            [(ngModel)]="this.endDate"
+            [value]="endDate"
+            type="date"
+            style="height: 32px"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="row">
+         <div class="col-lg-4">
+          <mat-form-field appearance="fill">
+            <mat-label>Trim type filter</mat-label>
+            <mat-select multiple [(ngModel)]="this.costingReport.trimType">
+              <mat-option
+                *ngFor="let trimType of trimTypeList" 
+ 
+                [value]="trimType" 
+                
+                >{{ trimType }} </mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div> 
+        
+        <div class="col-lg-4">
+          <mat-form-field appearance="fill">
+            <mat-label>Status filter</mat-label>
+            <mat-select
+              multiple
+              [(ngModel)]="this.costingReport.status"
+            >
+              <mat-option
+                *ngFor="let status of statusList1"
+                [value]="status.statusKey"
+              >
+                {{ status.statusName }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-4">
+          <mat-form-field appearance="fill">
+            <mat-label>Sort by Date</mat-label>
+            <mat-select [(ngModel)]="this.sort">
+              <mat-option value="-1">Newest First</mat-option>
+              <mat-option value="1">Oldest First</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-11">
+      <div class="row">
+        <div class="col-md-5">
+          <button (click)="onView()" class="btn btn-outline-dark btn-block">
+            View
+          </button>
+        </div>
+        <div class="col-lg-5">
+          <button (click)="onExport()" class="btn btn-outline-dark btn-block">
+            Download
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <mat-tab-group (selectedTabChange)="selectedTabChange($event)"></mat-tab-group>
+<mat-tab label="First">TrimType
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <th mat-header-cell *matHeaderCellDef> Woven </th>
+      <td mat-cell *matCellDef="let element"> {{woven}} </td>  
+</mat-tab> -->
+
+<!-- <div class="row">
+  
+  <div class="col-lg-6">
+    <div class="info-box">
+      <div>
+       <h2>Trim Type</h2>
+        <table class="table table-sm table-bordered order-count-table">
+     
+   <tr><td>Woven</td><td><p class="order-count"> {{woven}}</p></td></tr>
+    <tr><td>Tag</td> <td><p class="order-count"> {{tag}}</p></td></tr>
+    <tr><td>Printed</td> <td><p class="order-count">{{printed}}</p></td></tr>
+    <tr><td>Sticker-Flexo</td><td><p class="order-count">{{sticker_flexo}}</p></td></tr>
+    <tr> <td>Sticker-Offset</td><td><p class="order-count">{{sticker_offset}}</p></td></tr>
+  </table>
+  </div>
+</div>
+</div>
+
+<div class="col-lg-6">
+  <div class="info-box">
+  <div>
+    <table class="table table-sm table-bordered order-count-table">
+    <tr><td>New</td><td><p class="order-count"><p class="order-count">{{newNum}}</p></td></tr>
+      <tr><td>Sample Head 1 Approved</td><td><p class="order-count"> {{samplehead1Approved}}</p></td></tr>
+        <tr><td>Sample Head 2 Approved</td><td><p class="order-count">{{samplehead2Approved}}</p></td></tr>
+          <tr><td>Admin Approved</td><td><p class="order-count"> {{adminApproved}}</p></td></tr>
+            <tr><td>Admin Rejected</td><td><p class="order-count">{{adminRejected}}</p></td></tr>
+              <tr><td>Customer Approved</td><td><p class="order-count">{{customerApproved}}</p></td></tr>
+                <tr><td>Customer Rejected</td><td><p class="order-count">{{customerRejected}}</p></td></tr>
+                  <tr><td>Draft Order</td><td><p class="order-count">{{draftorderCreated}}</p></td></tr>
+  </table>
+  </div>
+  
+  </div>
+</div>
+</div> -->
+
+
+<div class="container">
+<div class="accordion-heading" id="f1" (click)="accordion('f1')">TrimType<span class="pull-right up-icon "[class.icon]="id==='f1'"><i class="fa fa-chevron-up"></i></span></div>
+<div class="accordion-content" *ngIf="id==='f1'">
+  <table class="table table-sm table-bordered order-count-table">
+     
+    <tr><td>Woven</td><td><p class="order-count"> {{woven}}</p></td></tr>
+     <tr><td>Tag</td> <td><p class="order-count"> {{tag}}</p></td></tr>
+     <tr><td>Printed</td> <td><p class="order-count">{{printed}}</p></td></tr>
+     <tr><td>Sticker-Flexo</td><td><p class="order-count">{{sticker_flexo}}</p></td></tr>
+     <tr> <td>Sticker-Offset</td><td><p class="order-count">{{sticker_offset}}</p></td></tr>
+   </table>
+</div>
+<div class="accordion-heading" id="f2" (click)="accordion('f2')">Status<span class="pull-right up-icon"[class.icon]="id==='f2'"><i class="fa fa-chevron-up"></i></span></div>
+<div class="accordion-content" *ngIf="id==='f2'"><table class="table table-sm table-bordered order-count-table">
+<tr><td>New</td><td><p class="order-count"><p class="order-count">{{newNum}}</p></td></tr>
+<tr><td>Sample Head 1 Approved</td><td><p class="order-count"> {{samplehead1Approved}}</p></td></tr>
+<tr><td>Sample Head 2 Approved</td><td><p class="order-count">{{samplehead2Approved}}</p></td></tr>
+<tr><td>Admin Approved</td><td><p class="order-count"> {{adminApproved}}</p></td></tr>
+<tr><td>Admin Rejected</td><td><p class="order-count">{{adminRejected}}</p></td></tr>
+<tr><td>Customer Approved</td><td><p class="order-count">{{customerApproved}}</p></td></tr>
+<tr><td>Customer Rejected</td><td><p class="order-count">{{customerRejected}}</p></td></tr>
+<tr><td>Draft Order</td><td><p class="order-count">{{draftorderCreated}}</p></td></tr>
+</table></div>
+</div>
+
+
+<div class="panel-body" style="padding:15px">
+  <table class="table table-striped order-list">
+    <thead>
+      <tr style="font-weight: 800">
+        <th>S.No</th>
+        <th><input class="form-control form-control-sm" type="text"
+          name="refNo" [(ngModel)]="fields.refNo" (ngModelChange)="updateFilters()">Reference Number</th> 
+        <th> Trim Type</th>
+        <th> <input class="form-control form-control-sm" type="text"
+          name="productName" [(ngModel)]="fields.productName" (ngModelChange)="updateFilters()">Product</th>
+        <th><input class="form-control form-control-sm" type="text"
+          name="customerName" [(ngModel)]="fields.customerName" (ngModelChange)="updateFilters()">Customer Name</th>
+        <th>Entry Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i = index; let d; of: data |paginate :{itemsPerPage:10,currentPage:p} | myFilterreport:filter;">
+       
+        <td>{{ i + 1 }}</td>
+        <td>{{ d.refNo }}</td>
+        <td
+          [ngClass]="{
+            'woven-color': d.sampleName === 'Woven',
+            'tag-color': d.sampleName === 'Tag',
+            'sticker-color': d.sampleName === 'Sticker',
+            'printed-color': d.sampleName === 'Printed'
+          }"
+        >
+          {{ d.trimType }}
+        </td>
+       
+        <td>{{ d.productName }}</td>
+        <td>{{ d.customerName }}</td>
+        <td>{{ d.entryDate }}</td>
+        <td>{{
+          d.status == 0
+          ? "New"
+          : d.status == 1
+          ? "Waiting for Admin Approval"
+          : d.status == 2
+          ? "Approved by Admin"
+          : d.status == 3
+          ? "Rejected"
+          : d.status == 4
+          ? "Waiting for Customer Approval"
+          : d.status == 5
+          ? "Approved by Customer"
+          : d.status == 6
+          ? "Rejected by Customer"
+          : d.status == 7
+          ? "Draft Order Created"
+          : d.status == 8
+          ? "Waiting for Sample Head1 Approval"
+          : d.status == 9
+          ? "Approved by Sample Head 1"
+          : d.status == 10
+          ? "Waiting for Sample Head2 Approval"
+          : d.status == 11
+          ? "Approved by Sample Head2"
+          : ""
+          }} </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p =$event"></pagination-controls>
+</div>
+
+<!-- loadingModalTemplate Start -->
+<ng-template #loadingModalTemplate let-modal>
+  <!-- loading gif -->
+  <app-loading-gif [progressValue]="" [showProgress]="false"></app-loading-gif>
+
+  <!-- Close Button Hidden -->
+  <button
+    id="closeLoadingModal"
+    style="display: none"
+    type="button"
+    (click)="modal.dismiss('Cross click')"
+  ></button>
+</ng-template>
+<!-- loadingModalTemplate End -->
+<!-- </div> -->

@@ -1,0 +1,78 @@
+label {
+  display: block;
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+
+input,
+label {
+  margin: .4rem 0;
+}
+.printed-color {
+  background-color: rgb(191, 130, 169, 0.6);
+}
+.tag-color {
+  background-color: rgb(218, 74, 32, 0.6);
+}
+.sticker-color {
+  background-color: rgb(54, 162, 235, 0.6);
+}
+.woven-color {
+  background-color: rgb(68, 193, 214, 0.6);
+}
+
+.box{
+  box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
+  }
+
+  
+  .info-box{
+    border:1px solid transparent;padding: 10px;border-radius: 5px;margin: 10px;background-color: #ffffff;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    min-height:500px;
+  }
+
+  .order-count{
+    font-weight: bold;
+  }
+.order-count-table{
+  font-size: px;
+}
+.accordion-heading{
+  padding: 5px;
+  cursor: pointer;
+  background: rgba(219, 222, 223, 0.678);
+  color: #131111;
+  font-weight: 600;
+  margin-top:2px;
+  border-radius: 2px;
+}
+@keyframes slideDown {
+  0%{
+    transform: translate(-100%);
+  }
+  50%{
+    transform: translate(8%);
+  }
+  65%{
+    transform: translate(-4%);
+  }
+  80%{
+    transform: translate(4%);
+  }
+  95%{
+    transform: translate(-2%);
+  }
+  100%{
+    transform: translate(0%);
+  }
+}
+.up-icon{
+  transition: 0.2s ease-out;
+}
+
+.icon{
+  animation-name: icon;
+  transform: rotate(180deg);
+  transition:0.2s ease-out;
+}
+
